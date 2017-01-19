@@ -1,4 +1,10 @@
 <div class = "container">
   <h1>Products:</h1>
-  <p><%= @first_product.name %></p>
+</br>
+  <p><% @products.each do |product| %></p>
+  <p><img src="<%= product.image %>"></img></p>
+  <p><%= product.name %>: <%= product.price%></p>
+  <p><%= product.description %></p>
+</br>
+  <p><% end %></p>
 </div>
