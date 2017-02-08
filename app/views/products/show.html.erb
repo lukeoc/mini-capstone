@@ -1,0 +1,37 @@
+<h1><%= @product.name %></h1>
+
+
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+     <img src="<%= @product.image %>" alt="<%= @product.name %>" class="img-responsive">
+     <div class="caption">
+      <h3><%= @product.name %>: <%= number_to_currency(@product.total) %></h3>     
+      <p>Categories: <% @product.categories.each do |category| %> <%= category.name %></p>
+      <% end %>
+      <p>Supplied by <%= @product.supplier.name %>.</p> 
+      <p><%= @product.description %>.</p> 
+      <p><%= @product.sale_message %> </p>
+      <p>price: <%= number_to_currency(@product.price) %></p>
+      <p>tax: <%= number_to_currency(@product.tax) %></p> 
+      <a href="/products/<%= @product.id %>/edit"><button type="button" class="btn btn-primary">Edit</button></a>
+      <%= form_tag "/products/#{@product.id}", method: :delete do %>
+      <input data-confirm="are you sure!?" type="submit" value="delete" class="btn btn-danger">
+      <% end %> 
+
+      <%= form_tag "/carted_products", method: :post do %>
+
+      <%= label_tag :quantity %>
+      <%= text_field_tag :quantity %>
+      <%= hidden_field_tag :product_id, @product.id %>
+      <%= submit_tag "add to cart", :class => 'btn btn-success' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+

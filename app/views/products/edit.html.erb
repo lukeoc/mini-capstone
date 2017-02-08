@@ -1,0 +1,25 @@
+<h1>edit <%= @product.name %></h1>
+<%= form_tag "/products/#{@product.id}", method: :patch do  %>
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">name</span>
+  <input type="text" name="name" class="form-control" placeholder="enter name" aria-describedby="basic-addon1">
+</div>
+
+<div class="input-group">
+<span class="input-group-addon" id="basic-addon1">price</span>
+<input type="text" name="price" class="form-control" placeholder="price please" aria-describedby="basic-addon1">
+</div>
+
+<div class="input-group">
+<span class="input-group-addon" id="basic-addon1">description</span>
+<input type="text" name="description" class="form-control" placeholder="type yourself a description" aria-describedby="basic-addon1">
+</div>
+
+<div class="input-group">
+<span class="input-group-addon" id="basic-addon1">image</span>
+<input type="text" name="image" class="form-control" placeholder="enter full file url" aria-describedby="basic-addon1">
+</div>
+
+
+<input type="submit" value="edit product" class="btn btn-info">
+<% end %>

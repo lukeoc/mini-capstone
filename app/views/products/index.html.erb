@@ -1,0 +1,17 @@
+<h1>all products:</h1>
+
+<% @products.each_slice(3) do |three_products| %>
+<div class="row">
+
+  <% three_products.each do |product| %>
+  <div class="col-md-4 col-sm-4">
+    <div class="thumbnail">
+      <a href="/products/<%= product.id %>"><img src="<%= product.image %>" class="img-responsive"></img></a>
+    </br>
+      <h3><a href="/products/<%= product.id %>"><%= product.name %></a> <%= number_to_currency(product.price) %></h3>
+      <p><%= product.description %></p>
+    </div>
+  </div>
+  <% end %>
+</div>
+<% end %>

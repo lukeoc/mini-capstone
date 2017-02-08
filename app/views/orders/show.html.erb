@@ -1,0 +1,7 @@
+<h1>order successfully placed!</h1>
+<p>user: <%= @order.user.name %></p>
+<p>order id:<%= @order.id%></p>
+
+<% @order.carted_products.each do |carted_product| %>
+<h5><%= carted_product.product.name %> (<%= carted_product.quantity %>)</h5>
+<% end %>
